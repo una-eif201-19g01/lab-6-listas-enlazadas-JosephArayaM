@@ -1,1 +1,14 @@
 /cmake-build-debug
+*.cmake
+*.bin
+*.exe
+*.c
+*.obj
+*.a
+*.rsp
+*.make
+*.marks
+*.txt
+*.json
+*.xml
+*.properties
