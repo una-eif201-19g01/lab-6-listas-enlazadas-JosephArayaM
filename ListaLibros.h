@@ -7,6 +7,7 @@
 
 #include <ostream>
 #include "Nodo.h"
+#include "Libro.h"
 
 class ListaLibros {
     Nodo *primero;
@@ -21,6 +22,8 @@ public:
     void insertarFinal(const Libro& _libro);
     bool eliminarInicio();
     bool eliminarFinal();
+    bool encontrado(int ide);
+    Libro obtenerLibro(int ide);
     int totalNodos();
     bool listaVacia();
     Nodo *getPrimero() const;

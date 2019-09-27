@@ -52,12 +52,15 @@ bool ListaLibros::eliminarInicio() {
 }
 
 bool ListaLibros::eliminarFinal(){
-    if (actual->getSiguiente() == nullptr) {
-        return false;
-    } else {
-        delete actual;
-        return true;
+    actual = primero;
+    while (actual->getSiguiente() != nullptr) {
+            actual = actual->getSiguiente();
+        if (actual->getSiguiente() == nullptr) {
+            delete actual;
+            return true;
+        }
     }
+    return false;
 }
 int ListaLibros::totalNodos() {
     int totalNodos = 0;
@@ -70,6 +73,28 @@ int ListaLibros::totalNodos() {
 
     return totalNodos;
 }
+
+bool ListaLibros::encontrado(int ide){
+    actual = primero;
+    while (actual->getLibro()->GetId() != ide) {
+        if (actual->getLibro()->GetId() == ide ) {
+            return true;
+        } else
+            actual = actual->getSiguiente();  
+    }
+    return false;
+}
+
+Libro ListaLibros::obtenerLibro(int ide){
+    actual = primero;
+    while (actual->getLibro()->GetId() != ide) {
+        if (actual->getLibro()->GetId() == ide ) {
+            return actual->getLibro();
+        }
+        actual = actual->getSiguiente();  
+    }
+}
+
 
 bool ListaLibros::listaVacia() {
     return primero == nullptr;
